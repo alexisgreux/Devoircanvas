@@ -65,6 +65,8 @@ const loop = () =>
     ball.x += ball.speed.x
     ball.y += ball.speed.y
 
+    
+
     // Clear
     // context.clearRect(0, 0, windowWidth, windowHeight)
     context.fillStyle = 'rgba(255, 255, 255, 0.1)'
@@ -72,7 +74,7 @@ const loop = () =>
 
     // Draw
     context.beginPath()
-    context.fillStyle = 'orange'
+    context.fillStyle = 'red'
     context.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2)
     context.fill()
 }
