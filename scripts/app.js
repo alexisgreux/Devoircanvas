@@ -1,7 +1,6 @@
 const $canvas = document.querySelector('.js-canvas')
 const context = $canvas.getContext('2d')
 
-
 /**
  * Resize
  */
@@ -24,9 +23,9 @@ resize()
  * Ball
  */
 const ball = {}
-ball.x = 100
-ball.y = 100
-ball.radius = 50
+ball.x = 0.1
+ball.y = 0.1
+ball.radius = 20
 ball.speed = {}
 ball.speed.x = 0
 ball.speed.y = 0
@@ -35,8 +34,8 @@ ball.speed.y = 0
  * Cursor
  */
 const cursor = {}
-cursor.x = 0
-cursor.y = 0
+cursor.x = -500
+cursor.y = -500
 
 $canvas.addEventListener('mousemove', (_event) =>
 {
@@ -51,16 +50,18 @@ const loop = () =>
 {
     window.requestAnimationFrame(loop)
 
+
+
     // Update ball
     const angle = Math.atan2(cursor.y - ball.y, cursor.x - ball.x)
     const x = Math.cos(angle)
     const y = Math.sin(angle)
 
-    ball.speed.x += x * 1
+    ball.speed.x += x * 1  
     ball.speed.y += y * 1
 
-    ball.speed.x *= 0.98
-    ball.speed.y *= 0.98
+    ball.speed.x *= 0.95
+    ball.speed.y *= 0.95
 
     ball.x += ball.speed.x
     ball.y += ball.speed.y
@@ -77,7 +78,11 @@ const loop = () =>
     context.fillStyle = 'red'
     context.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2)
     context.fill()
+
+              
+
 }
+
 
 
 loop()
